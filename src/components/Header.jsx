@@ -3,8 +3,11 @@ import { NavLink } from 'react-router-dom'
 import CartBtn from './buttons/CartBtn'
 import Login from './buttons/Login'
 import Signup from './buttons/Signup'
+import { checkUserLoggedIn, userLogout } from '../utils/checkLogin'
 
 const Header = () => {
+    const isUserLoggedIn = checkUserLoggedIn();
+
     return (
         <>
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -27,12 +30,18 @@ const Header = () => {
                             <li className="nav-item">
                                 <NavLink className="nav-link" to="/contact">Contact</NavLink>
                             </li>
-                            
-                            
                         </ul>
                     <NavLink className="navbar-brand mx-auto fw-bold" to="/">APPLE MART</NavLink>
-                    <Login/>
-                    <Signup/>
+                    {isUserLoggedIn ? (
+                        <button type="button" className="btn btn-outline-danger ms-auto" onClick={()=> userLogout()}>
+                            <span className="fa fa-sign-out me-1"></span> Logout
+                        </button>
+                    ) : (
+                        <>
+                            <Login/>
+                            <Signup/>
+                        </>
+                    )}
                     <CartBtn/>
                     </div>
                 </div>

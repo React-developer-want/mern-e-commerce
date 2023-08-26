@@ -24,7 +24,7 @@ const Cart = () => {
                         </div>
                         <div className="col-md-4">
                             <h3>{cartItem.title}</h3>
-                            <p className="lead fw-bold">${cartItem.price}</p>
+                            <p className="lead fw-bold">₹{cartItem.price}</p>
                         </div>
                     </div>
                 </div>
