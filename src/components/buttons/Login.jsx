@@ -21,11 +21,11 @@ const Login = () => {
             const token = result.user.accessToken;
             localStorage.setItem('email', email);
             localStorage.setItem('token', token);
-            console.log('Successfully logged in!');
+            window.alert('Successfully logged in!');
             window.location.reload();
         } catch (error) {
             const errorMessage = error.message;
-            console.log(errorMessage);   
+            window.alert(errorMessage);   
         }
     }
     const isFormFilled = !Object.values(userDetails).reduce((acc, item)=> (acc && !!item), true);

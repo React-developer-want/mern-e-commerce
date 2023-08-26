@@ -20,10 +20,10 @@ const Signup = () => {
         const { email, password } = userDetails;
         try {
             await createUserWithEmailAndPassword(auth, email, password);    
-            console.log("Successfully created account!");
+            window.alert("Successfully created account!");
         } catch (error) {
             const errorMessage = error.message;
-            console.log(errorMessage);            
+            window.alert(errorMessage);            
         }
     }
 

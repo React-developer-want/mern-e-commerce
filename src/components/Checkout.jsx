@@ -28,7 +28,7 @@ const Checkout = () => {
                 sessionId: session.id,
             });
         } catch (error) {
-            console.log("failed", { error });
+            window.alert("failed", { error });
         }
     };
 

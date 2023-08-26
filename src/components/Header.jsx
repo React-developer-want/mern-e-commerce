@@ -1,12 +1,17 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { NavLink, useLocation } from 'react-router-dom'
 import CartBtn from './buttons/CartBtn'
 import Login from './buttons/Login'
 import Signup from './buttons/Signup'
-import { checkUserLoggedIn, userLogout } from '../utils/checkLogin'
+import { checkUserLoggedIn, userLogout } from '../utils/checkLogin';
 
 const Header = () => {
-    const isUserLoggedIn = checkUserLoggedIn();
+    const location = useLocation();
+    const [isUserLoggedIn, setIsUserLoggedIn] = useState(checkUserLoggedIn());
+
+    useEffect(()=> {
+        setIsUserLoggedIn(checkUserLoggedIn());
+    }, [location]);
 
     return (
         <>
