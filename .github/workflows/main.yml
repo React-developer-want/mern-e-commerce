@@ -1,0 +1,22 @@
+name: Set Environment Variables
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  set-env-variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use variables
+        run: |
+          echo "repository variable : $REACT_APP_BASE_URL"
+          echo "organization variable : $REACT_APP_STRIPE_PUBLIC_KEY"
+        env: 
+          REACT_APP_BASE_URL: ${{ vars.REACT_APP_BASE_URL }}
+          REACT_APP_STRIPE_PUBLIC_KEY: ${{ vars.REACT_APP_STRIPE_PUBLIC_KEY }}

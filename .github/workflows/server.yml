@@ -1,0 +1,24 @@
+name: Set Environment Variables
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'server/**'
+
+jobs:
+  set-env-variables:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Use variables
+        run: |
+          echo "repository variable : $STRIPE_SECRET_KEY"
+          echo "repository variable : $CLIENT_BASE_URL"
+        env: 
+          STRIPE_SECRET_KEY: ${{ vars.STRIPE_SECRET_KEY }}
+          CLIENT_BASE_URL: ${{ vars.CLIENT_BASE_URL }}

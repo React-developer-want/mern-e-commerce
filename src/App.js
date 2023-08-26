@@ -8,7 +8,9 @@ import Contact from './components/Contact'
 import { Redirect, Route, Switch } from 'react-router-dom';
 import ProductDetail from './components/ProductDetail';
 import Cart from './components/Cart';
-import Checkout from './components/Checkout'
+import Checkout from './components/Checkout';
+import Success from './components/Success';
+import Cancel from './components/Cancel';
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
         <Route exact path="/checkout" component={Checkout} />
         <Route exact path="/about" component={About} />
         <Route exact path="/contact" component={Contact} />
+        <Route exact path="/success" component={Success} />
+        <Route exact path="/cancel" component={Cancel} />
         <Redirect to="/" />
       </Switch>
       <Footer/>
